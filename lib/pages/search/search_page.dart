@@ -50,8 +50,8 @@ class _SearchPageState extends State<SearchPage> {
                         width: 500,
                         height: 50,
                         child: TextField(
-                          decoration:
-                              InputDecoration(hintText: "Cari manga..."),
+                          decoration: InputDecoration(
+                              hintText: "Search for a manga..."),
                           textAlign: TextAlign.center,
                           onChanged: ((v) async {
                             setState(

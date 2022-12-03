@@ -26,29 +26,29 @@ class MainPage extends StatelessWidget {
               debugShowCheckedModeBanner: false,
               theme: ((settings.data == null) ? true : settings.data!.lightMode)
                   ? ThemeData(
-                      primaryColor: Color.fromARGB(255, 255, 103, 64),
+                      primaryColor: Color.fromRGBO(38, 0, 255, 1),
                       primarySwatch: createMaterialColor(
-                        Color(0xFFFF6740),
+                        Color.fromRGBO(38, 0, 255, 1),
                       ),
                     )
                   : ThemeData.dark().copyWith(
                       textButtonTheme: TextButtonThemeData(
                         style: TextButton.styleFrom(
-                          foregroundColor: Color.fromARGB(255, 255, 103, 64),
+                          foregroundColor: Color.fromRGBO(38, 0, 255, 1),
                         ),
                       ),
-                      primaryColor: Color.fromARGB(255, 255, 103, 64),
+                      primaryColor: Color.fromARGB(255, 4, 0, 255),
                       progressIndicatorTheme: ProgressIndicatorThemeData(
-                        color: Color.fromARGB(255, 255, 103, 64),
+                        color: Color.fromARGB(255, 4, 0, 255),
                       ),
                       floatingActionButtonTheme: FloatingActionButtonThemeData(
-                        backgroundColor: Color.fromARGB(255, 255, 103, 64),
+                        backgroundColor: Color.fromARGB(255, 4, 0, 255),
                         extendedTextStyle: TextStyle(color: Colors.white),
                       ),
                       elevatedButtonTheme: ElevatedButtonThemeData(
                         style: ElevatedButton.styleFrom(
                           padding: EdgeInsets.all(10),
-                          backgroundColor: Color.fromARGB(255, 255, 103, 64),
+                          backgroundColor: Color.fromARGB(255, 4, 0, 255),
                         ),
                       ),
                     ),

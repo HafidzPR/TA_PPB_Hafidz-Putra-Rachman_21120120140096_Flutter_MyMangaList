@@ -68,7 +68,7 @@ class _Library extends State<Library> {
         return userDetails;
       } on Exception catch (e) {
         debugPrint(e.toString());
-        return Future.error('Tidak dapat terhubung ke internet');
+        return Future.error('Unable to connect to the internet');
       }
     } else {
       return UserDetails(
@@ -112,7 +112,7 @@ class _Library extends State<Library> {
         return UserFollowedManga.fromJson(jsonDecode(response.body));
       } on Exception catch (e) {
         debugPrint(e.toString());
-        return Future.error('Tidak dapat terhubung ke internet');
+        return Future.error('Unable to connect to the internet');
       }
     }
   }
@@ -156,7 +156,7 @@ class _Library extends State<Library> {
       // });
       // return mangaList;
     } on SocketException {
-      return Future.error(Exception('Tidak dapat terhubung ke internet'));
+      return Future.error(Exception('Unable to connect to the internet'));
     }
     return mangaList;
   }
@@ -230,7 +230,7 @@ class _Library extends State<Library> {
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   Text(
-                                    "Tidak dapat memuat data, harap periksa internet Anda",
+                                    "Unable to load data, please check your internet",
                                   ),
                                   TextButton(
                                     onPressed: () {
@@ -254,7 +254,7 @@ class _Library extends State<Library> {
                                           .characters.first
                                           .toUpperCase(),
                                       style: TextStyle(
-                                          color: Colors.white, fontSize: 70),
+                                          color: Colors.white, fontSize: 10),
                                     ),
                                   ),
                                   decoration: BoxDecoration(
@@ -353,7 +353,7 @@ class _Library extends State<Library> {
                   Icons.info,
                 ),
                 title: Text(
-                  'Tentang MyMangalist',
+                  'Tentang MyMangaList',
                   style: TextStyle(fontSize: 16),
                 ),
                 onTap: () {
@@ -388,7 +388,7 @@ class _Library extends State<Library> {
                               children: [
                                 Expanded(
                                   child: Text(
-                                      'Silakan masuk ke akun mangadex Anda untuk mulai menggunakan library'),
+                                      'Please login into your mangadex account to start using the library'),
                                 ),
                                 TextButton(
                                   onPressed: () async {
@@ -425,7 +425,7 @@ class _Library extends State<Library> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          'Ada yang salah :\'(',
+                                          'Something went wrong :\'(',
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontSize: 20),
@@ -433,7 +433,7 @@ class _Library extends State<Library> {
                                         Padding(
                                           padding: EdgeInsets.all(25),
                                           child: Text(
-                                            'Anda dapat mencoba masuk lagi',
+                                            'But you can try logging in again',
                                             style: TextStyle(
                                                 color: Colors.white,
                                                 fontSize: 20),
@@ -446,7 +446,7 @@ class _Library extends State<Library> {
                                           child: Padding(
                                             padding: const EdgeInsets.all(8.0),
                                             child: Text(
-                                              'Login lagi',
+                                              'Login again',
                                               style: TextStyle(
                                                   color: Colors.white,
                                                   fontSize: 20),

@@ -40,7 +40,7 @@ class _AboutMangaState extends State<AboutManga> {
 
   String translatedLangStartValue = 'English';
   final List<String> translatedLanguageOptions = [
-    'Apapun',
+    'Any',
     'English',
     'Brazilian Portugese',
     'Castilian Spanish',
@@ -78,7 +78,7 @@ class _AboutMangaState extends State<AboutManga> {
         return Future.error(
             "Mangadex Server Exception: ${e.info.errors.toString()}");
       } on SocketException {
-        return Future.error("Tidak dapat terhubung ke internet.");
+        return Future.error("Unable to connect to the internet.");
       }
     } else {
       return Future.error('Token is missing');
@@ -102,7 +102,7 @@ class _AboutMangaState extends State<AboutManga> {
         return Future.error(
             "Mangadex Server Exception: ${e.info.errors.toString()}");
       } on SocketException {
-        return Future.error("Tidak dapat terhubung ke internet.");
+        return Future.error("Unable to connect to the internet.");
       }
     } else {
       return Future.error('Token missing');
@@ -125,13 +125,13 @@ class _AboutMangaState extends State<AboutManga> {
       return Future.error(
           "Mangadex Server Exception: ${e.info.errors.toString()}");
     } on SocketException {
-      return Future.error("Tidak dapat terhubung ke internet");
+      return Future.error("Unable to connect to the internet");
     }
   }
 
   bool isFollowed = false;
   bool hasPressed = false;
-  String buttonText = 'Tambah ke library';
+  String buttonText = 'Add to library';
   static Container _tagContainer(String _tag, bool lightMode) {
     return Container(
       decoration: BoxDecoration(
@@ -246,7 +246,7 @@ class _AboutMangaState extends State<AboutManga> {
       return Future.error(
           "Mangadex server exception: ${e.info.errors.toString()}");
     } on SocketException {
-      return Future.error("Tidak dapat terhubung ke internet");
+      return Future.error("Unable to connect to the internet");
     }
   }
 
@@ -468,7 +468,7 @@ class _AboutMangaState extends State<AboutManga> {
                                                               const EdgeInsets
                                                                   .all(8),
                                                           child: Text(
-                                                            'Tahun Rilis: ' +
+                                                            'Year of Release: ' +
                                                                 getYear(widget
                                                                     .mangaData
                                                                     .attributes
@@ -504,7 +504,7 @@ class _AboutMangaState extends State<AboutManga> {
                                                                           .hasError) {
                                                                         return Card(
                                                                           child:
-                                                                              Text("Tidak bisa mendapatkan status membaca manga saat ini"),
+                                                                              Text("Unable to get the manga's current reading status"),
                                                                         );
                                                                       } else {
                                                                         print(data
@@ -553,16 +553,16 @@ class _AboutMangaState extends State<AboutManga> {
                                                                                     color: Colors.white,
                                                                                     onPressed: () async {
                                                                                       await unfollowManga(loginData.data!.session, widget.mangaData.id);
-                                                                                      print('Manga yang tidak diikuti ${widget.mangaData.id}');
+                                                                                      print('Unfollowed manga ${widget.mangaData.id}');
                                                                                       setState(() {
                                                                                         isFollowed = false;
                                                                                       });
                                                                                     },
                                                                                     icon: Tooltip(
-                                                                                      message: 'Hapus dari library',
+                                                                                      message: 'Remove from library',
                                                                                       child: Icon(
                                                                                         Icons.cancel,
-                                                                                        semanticLabel: 'Hapus dari library',
+                                                                                        semanticLabel: 'Remove from library',
                                                                                       ),
                                                                                     ),
                                                                                   ),
@@ -581,7 +581,7 @@ class _AboutMangaState extends State<AboutManga> {
                                                                                   e.info.errors.toString(),
                                                                                 );
                                                                               }
-                                                                              print('Manga yand diikuti ${widget.mangaData.id}');
+                                                                              print('Followed manga ${widget.mangaData.id}');
                                                                               setState(() {
                                                                                 isFollowed = true;
                                                                               });
@@ -593,7 +593,7 @@ class _AboutMangaState extends State<AboutManga> {
                                                                                 mainAxisSize: MainAxisSize.min,
                                                                                 children: [
                                                                                   Text(
-                                                                                    'Tambah ke library!',
+                                                                                    'Add to library!',
                                                                                     style: TextStyle(fontSize: 25),
                                                                                   ),
                                                                                   SizedBox(
@@ -744,7 +744,7 @@ class _AboutMangaState extends State<AboutManga> {
                                                                               children: [
                                                                                 Expanded(
                                                                                   child: Text(
-                                                                                    'Tidak ada yang ditemukan',
+                                                                                    'Nothing found :(',
                                                                                     style: TextStyle(fontSize: 21),
                                                                                   ),
                                                                                 ),
@@ -955,7 +955,7 @@ class _AboutMangaState extends State<AboutManga> {
                                                                                                               ? PopupMenuItem(
                                                                                                                   child: ListTile(
                                                                                                                     leading: Icon(Icons.check_outlined),
-                                                                                                                    title: Text("Tandai telah dibaca"),
+                                                                                                                    title: Text("Mark as read"),
                                                                                                                   ),
                                                                                                                   onTap: () async {
                                                                                                                     try {
@@ -964,9 +964,9 @@ class _AboutMangaState extends State<AboutManga> {
                                                                                                                       ]);
 
                                                                                                                       if (result.result == 'ok') {
-                                                                                                                        print('Tandai ${chapterData.data!.data[index].id}');
+                                                                                                                        print('Marked ${chapterData.data!.data[index].id}');
                                                                                                                       } else {
-                                                                                                                        print('Ada error saat menandai ${chapterData.data!.data[index].id} sebagai belum dibaca');
+                                                                                                                        print('Something went wrong while marking ${chapterData.data!.data[index].id} as unread');
                                                                                                                       }
                                                                                                                     } on MangadexServerException catch (e) {
                                                                                                                       print(e.info.errors);
@@ -977,7 +977,7 @@ class _AboutMangaState extends State<AboutManga> {
                                                                                                                   ? PopupMenuItem(
                                                                                                                       child: ListTile(
                                                                                                                         leading: Icon(Icons.check),
-                                                                                                                        title: Text("Tandai belum dibaca"),
+                                                                                                                        title: Text("Mark as unread"),
                                                                                                                       ),
                                                                                                                       onTap: () async {
                                                                                                                         try {
@@ -986,9 +986,9 @@ class _AboutMangaState extends State<AboutManga> {
                                                                                                                           ]);
                                                                                                                           setState(() {});
                                                                                                                           if (result.result == 'ok') {
-                                                                                                                            print('Tandai ${chapterData.data!.data[index].id}');
+                                                                                                                            print('Marked ${chapterData.data!.data[index].id}');
                                                                                                                           } else {
-                                                                                                                            print('Ada error saat menandai ${chapterData.data!.data[index].id} sebagai belum dibaca');
+                                                                                                                            print('Something went wrong while marking ${chapterData.data!.data[index].id} as unread');
                                                                                                                             // var refreshed = await refresh(loginData.data!.refresh);
                                                                                                                             // loginData = refreshed.token;
                                                                                                                             // await markChapterReadOrUnRead(widget.mangaData.id, loginData!.session, chapterIdsUnread: [
@@ -1003,15 +1003,15 @@ class _AboutMangaState extends State<AboutManga> {
                                                                                                                   : PopupMenuItem(
                                                                                                                       child: ListTile(
                                                                                                                         leading: Icon(Icons.check_outlined),
-                                                                                                                        title: Text("Tandai telah dibaca"),
+                                                                                                                        title: Text("Mark as read"),
                                                                                                                       ),
                                                                                                                       onTap: () async {
                                                                                                                         var result = await markChapterReadOrUnRead(widget.mangaData.id, loginData.data!.session, chapterIdsRead: [chapterData.data!.data[index].id]);
                                                                                                                         setState(() {});
                                                                                                                         if (result.result == 'ok') {
-                                                                                                                          print('Tandai ${chapterData.data!.data[index].id}');
+                                                                                                                          print('Marked ${chapterData.data!.data[index].id}');
                                                                                                                         } else {
-                                                                                                                          print('Ada error saat menandai ${chapterData.data!.data[index].id} sebagai telah dibaca');
+                                                                                                                          print('Something went wrong while marking ${chapterData.data!.data[index].id} as read');
                                                                                                                         }
                                                                                                                       },
                                                                                                                     ),
@@ -1101,13 +1101,13 @@ class _AboutMangaState extends State<AboutManga> {
                                                                         Expanded(
                                                                           child:
                                                                               Text(
-                                                                            'Ada yang salah :(',
+                                                                            'Something went wrong :(',
                                                                           ),
                                                                         ),
                                                                         Expanded(
                                                                           child:
                                                                               Text(
-                                                                            'Pastikan Anda terhubung ke internet dan internet berfungsi dengan baik',
+                                                                            'Please make sure you are connected to the internet and the internet is working properly',
                                                                           ),
                                                                         ),
                                                                       ],
@@ -1160,7 +1160,7 @@ class _AboutMangaState extends State<AboutManga> {
                               } else {
                                 return Center(
                                   child: Text(
-                                    'Ada yang salah :\'(',
+                                    'Something went wrong :\'(',
                                     style: TextStyle(fontSize: 17),
                                   ),
                                 );

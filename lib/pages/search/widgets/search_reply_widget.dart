@@ -31,7 +31,7 @@ class _SearchReplyScreen extends State<SearchReplyScreen> {
       return Future.error(
           "Mangadex server exception: ${e.info.errors.toString()}");
     } on SocketException {
-      return Future.error("Tidak dapat terhubung ke internet");
+      return Future.error("Unable to connect to the internet");
     }
   }
 
@@ -44,7 +44,7 @@ class _SearchReplyScreen extends State<SearchReplyScreen> {
             return Container(
               child: Center(
                 child: Text(
-                  'Ada yang salah :\'(',
+                  'Something went wrong :\'(',
                   style: TextStyle(fontSize: 20),
                 ),
               ),
@@ -53,7 +53,7 @@ class _SearchReplyScreen extends State<SearchReplyScreen> {
             return Container(
               child: Center(
                 child: Text(
-                  'Manga tidak dapat ditemukan :(',
+                  'Manga tidak ditemukan :(',
                   style: TextStyle(fontSize: 20),
                 ),
               ),

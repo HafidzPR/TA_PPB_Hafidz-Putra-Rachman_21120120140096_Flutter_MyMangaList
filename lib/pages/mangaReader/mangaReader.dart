@@ -131,7 +131,7 @@ class _MangaReaderState extends State<MangaReader> {
                       icon: Icon(
                         Icons.fullscreen_exit,
                       ),
-                      tooltip: 'Keluar LayarPenuh',
+                      tooltip: 'Exit Fullscreen',
                     )
                   : IconButton(
                       onPressed: () {
@@ -142,7 +142,7 @@ class _MangaReaderState extends State<MangaReader> {
                       icon: Icon(
                         Icons.fullscreen,
                       ),
-                      tooltip: 'LayarPenuh',
+                      tooltip: 'Fullscreen',
                     ),
             )
           ],
@@ -160,7 +160,7 @@ class _MangaReaderState extends State<MangaReader> {
             Icons.filter_b_and_w,
             color: Colors.white,
           ),
-          tooltip: "Warna Filters",
+          tooltip: "Color Filters",
         ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -200,7 +200,7 @@ class _MangaReaderState extends State<MangaReader> {
                                   widget.mangaAggregate.volumes[currentVolume]
                                       .chapters[currentChapter]!.id,
                                 ]);
-                            print('Tandai chapter telah dibaca.');
+                            print('marked chapter as read.');
                           } catch (e) {
                             if (e is MangadexServerException) {
                               // if (e.info.errors[0].status == 401) {
@@ -332,7 +332,7 @@ class _MangaReaderState extends State<MangaReader> {
                                                 shrinkWrap: true,
                                                 children: [
                                                   Text(
-                                                    "Warna filters",
+                                                    "Color filters",
                                                     style:
                                                         TextStyle(fontSize: 30),
                                                   ),
@@ -340,7 +340,7 @@ class _MangaReaderState extends State<MangaReader> {
                                                     height: 20,
                                                   ),
                                                   Text(
-                                                    "Kecerahan / Kegelapan",
+                                                    "Brightness / Opacity",
                                                     style:
                                                         TextStyle(fontSize: 20),
                                                   ),
@@ -372,7 +372,7 @@ class _MangaReaderState extends State<MangaReader> {
                                                     ),
                                                   ),
                                                   Text(
-                                                    "Filter Warna",
+                                                    "Filter Colors",
                                                     style:
                                                         TextStyle(fontSize: 20),
                                                   ),
@@ -462,7 +462,7 @@ class _MangaReaderState extends State<MangaReader> {
                                                       ),
                                                       TextButton(
                                                         child: Text(
-                                                          "Tutup",
+                                                          "Close",
                                                           style: TextStyle(
                                                               fontSize: 20),
                                                         ),

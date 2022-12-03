@@ -37,7 +37,7 @@ class _SearchResultHolder extends State<SearchResultHolder> {
       var artUrlData = await lib.getCoverArtUrl([mangaId], res: 256);
       return artUrlData;
     } on SocketException {
-      return Future.error("Tidak dapat terhubung ke internet");
+      return Future.error("Unable to connect to the internet");
     } on MangadexServerException catch (e) {
       return Future.error(
           "Mangadex Server Exception: ${e.info.errors.toString()}");
@@ -279,13 +279,14 @@ class _SearchResultHolder extends State<SearchResultHolder> {
 
   void showBanner() => ScaffoldMessenger.of(context).showMaterialBanner(
         MaterialBanner(
-          content: Text('Ada yang salah, pastikan Anda terhubung ke internet.'),
+          content: Text(
+              'Something went wrong, make sure you are connected to the internet.'),
           actions: [
             TextButton(
               onPressed: () {
                 ScaffoldMessenger.of(context).hideCurrentMaterialBanner();
               },
-              child: Text('Batalkan'),
+              child: Text('Dismiss'),
               style: TextButton.styleFrom(),
             )
           ],
